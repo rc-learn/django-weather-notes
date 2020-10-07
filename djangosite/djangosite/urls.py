@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 from weather import views
+from note.views import notepad, del_note
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('', views.whome, name='whome')
+	path('weather', views.whome, name='whome'),    #'' makes it the homepage
+	path('notes', notepad, name='notepad'),
+	path('del_note/<int:noteid>/', del_note, name='del_note'),
 ]
